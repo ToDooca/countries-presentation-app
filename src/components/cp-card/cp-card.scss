@@ -1,0 +1,17 @@
+@import "src/assets/variables";
+
+.card-container {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.10);
+  border-radius: 5px;
+  flex: 1 1 calc(25% - 32px);
+  max-width: calc(25% - 32px);
+  background-color: $white;
+  margin: 16px;
+
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+

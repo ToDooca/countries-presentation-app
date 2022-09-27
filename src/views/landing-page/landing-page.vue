@@ -1,22 +1,14 @@
 <template>
-  <div v-for="country in countries" :key="country.name">
-  </div>
+  <cp-card-grid/>
 </template>
 
 <script lang="ts">
-import { defineComponent} from 'vue';
-import store from "@/store";
+import {defineComponent} from 'vue';
+import CpCardGrid from "@/components/cp-card-grid/cp-card-grid.vue";
 
 export default defineComponent({
   name: 'LandingPage',
-  computed: {
-    countries: function () {
-      return store.getters.getCountries
-    }
-  },
-  created() {
-    store.dispatch("fetchCountries");
-  }
+  components: {CpCardGrid},
 });
 
 </script>
