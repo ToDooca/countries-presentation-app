@@ -5,12 +5,12 @@ import CountryPreview from "@/views/country-preview/country-preview.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
+    name: 'landing_page',
     component: LandingPage
   },
   {
     path: '/preview',
-    name: 'preview',
+    name: 'country_preview',
     component: CountryPreview
   },
 ]

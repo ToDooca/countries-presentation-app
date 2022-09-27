@@ -3,12 +3,13 @@
   <router-view/>
 </template>
 
-<script>
-import CpNav from "@/components/cp-nav/cp-nav";
+<script lang="ts">
+import CpNav from "@/components/cp-nav/cp-nav.vue";
 
 export default {
-  components: {CpNav}
+  components: {CpNav},
 }
+
 </script>
 
 <style lang="scss">
