@@ -1,17 +1,19 @@
 <template>
   <div class="card-container">
-    <img :src="image" alt="flag_img">
-    <div class="card-info">
-      <h2>{{ country_name }}</h2>
-      <p><span>Population: </span>{{ formatPopulation(population) }}</p>
-      <p><span>Region: </span>{{ region }}</p>
-      <div class="capital-list">
-        <span>Capital:&nbsp;</span>
-        <ul>
-          <li v-for="capital of capitalList"> {{ capital }}</li>
-        </ul>
+    <router-link :to="{ name: 'country_preview', params: {name: country_name}}">
+      <img :src="image" alt="flag_img">
+      <div class="card-info">
+        <h2>{{ country_name }}</h2>
+        <p><span>Population: </span>{{ formatPopulation(population) }}</p>
+        <p><span>Region: </span>{{ region }}</p>
+        <div class="capital-list">
+          <span>Capital:&nbsp;</span>
+          <ul>
+            <li v-for="capital of capitalList"> {{ capital }}</li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -30,7 +32,7 @@ export default {
       default: 'N/A'
     },
     population: {
-      type: String,
+      type: Number,
       default: 'N/A'
     },
     region: {
@@ -43,7 +45,7 @@ export default {
     },
   },
   methods: {
-    formatPopulation(population: string): string {
+    formatPopulation(population: number): string {
       return population.toLocaleString();
     }
   }

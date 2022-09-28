@@ -7,6 +7,12 @@
   width: 315px;
   background-color: $white;
   margin: 30px;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 
   @media (max-width: $md_breakpoint) {
     margin: 30px -20px;
@@ -14,14 +20,6 @@
 
   @media (max-width: $sm_breakpoint) {
     margin: 30px 10px;
-
-    .card-info {
-      font-size: 14px;
-
-      h2 {
-        font-size: 18px;
-      }
-    }
   }
 
   img {
@@ -36,6 +34,11 @@
       height: auto;
     }
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .card-info {
@@ -49,6 +52,13 @@
   span {
     font-weight: 600;
   }
+
+  @media (max-width: $sm_breakpoint) {
+    font-size: 14px;
+    h2 {
+      font-size: 18px;
+    }
+  }
 }
 
 .capital-list {
@@ -61,5 +71,3 @@
     margin: 0;
   }
 }
-
-

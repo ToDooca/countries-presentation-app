@@ -1,13 +1,15 @@
-import { createStore } from "vuex";
+import {createStore} from "vuex";
 import {State} from "@/types/state";
 import axios from "axios";
 
 export default createStore<State>({
     state: {
-        countries: []
+        countries: [],
+        country: []
     },
     getters: {
-      getCountries: (state) => state.countries
+        getCountries: (state) => state.countries,
+        getCountry: (state) => state.country,
     },
     actions: {
         fetchCountries({commit}) {
@@ -17,11 +19,23 @@ export default createStore<State>({
                 //@TODO implement snackbar or a similar alternative
                 console.log(e)
             })
+        },
+        fetchCountry({commit}, countryName) {
+            axios.get('https://restcountries.com/v3.1/name/malta').then(res => {
+                commit('SET_COUNTRY', res.data)
+                console.log(res.data)
+            }).catch(e => {
+                //@TODO implement snackbar or a similar alternative
+                console.log(e)
+            })
         }
     },
     mutations: {
-        SET_COUNTRIES(state, data) {
-            state.countries = data
+        SET_COUNTRIES(state, countries) {
+            state.countries = countries
+        },
+        SET_COUNTRY(state, country) {
+            state.country = country
         }
     },
 })

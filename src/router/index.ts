@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     component: LandingPage
   },
   {
-    path: '/preview',
+    path: '/preview/:name',
     name: 'country_preview',
     component: CountryPreview
   },
