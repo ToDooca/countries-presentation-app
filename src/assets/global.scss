@@ -10,14 +10,11 @@ body {
 
 .wrapper {
   max-width: $desktop_breakpoint;
-  padding: 0 120px;
+  padding: 0 70px;
   margin: 0 auto;
   clear: both;
   @media (max-width: $tablet_breakpoint) {
-    padding: 0 58px;
-  }
-  @media (max-width: $mobile_breakpoint) {
-    padding: 0 12px;
+    padding: 0 48px;
   }
 }
 

@@ -1,10 +1,12 @@
 <template>
   <div class="card-container">
     <img :src="image" alt="flag_img">
-    <h3>{{ country_name }}</h3>
-    <p>{{ population }}</p>
-    <p>{{ region }}</p>
-    <p>{{ capital }}</p>
+    <div class="card-info">
+      <h2>{{ country_name }}</h2>
+      <p><span>Population: </span>{{ formatPopulation(population) }}</p>
+      <p><span>Region: </span>{{ region }}</p>
+      <p><span>Capital: </span>{{ capital }}</p>
+    </div>
   </div>
 </template>
 
@@ -21,8 +23,8 @@ export default {
       default: 'Serbia'
     },
     population: {
-      type: String,
-      default: '6908224'
+      type: Number,
+      default: 6908224
     },
     region: {
       type: String,
@@ -32,6 +34,11 @@ export default {
       type: String,
       default: 'Belgrade'
     },
+  },
+  methods: {
+    formatPopulation(population: number): string{
+      return population.toLocaleString();
+    }
   }
 }
 </script>

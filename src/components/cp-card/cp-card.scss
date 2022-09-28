@@ -3,14 +3,40 @@
 .card-container {
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.10);
   border-radius: 5px;
-  flex: 1 1 calc(25% - 32px);
-  max-width: calc(25% - 32px);
+  flex: 1 1 calc(25% - 70px);
+  max-width: calc(25% - 70px);
   background-color: $white;
-  margin: 16px;
+  margin: 35px;
+
+  @media (max-width: $tablet_breakpoint) {
+    flex: 1 1 calc(50% - 48px);
+    max-width: calc(50% - 48px);
+    margin: 24px;
+  }
+
+  @media (max-width: $mobile_breakpoint) {
+    flex: 1 1 calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    margin: 18px;
+  }
 
   img {
     width: 100%;
     border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.03);
+  }
+}
+
+.card-info {
+  padding: 18px;
+  margin-bottom: 30px;
+
+  h2 {
+    padding-bottom: 18px;
+  }
+
+  span {
+    font-weight: 600;
   }
 }
 
