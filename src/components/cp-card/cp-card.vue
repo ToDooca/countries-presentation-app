@@ -27,19 +27,19 @@ export default {
     },
     country_name: {
       type: String,
-      default: 'Serbia'
+      default: 'N/A'
     },
     population: {
       type: String,
-      default: '6908224'
+      default: 'N/A'
     },
     region: {
       type: String,
-      default: 'Europe'
+      default: 'N/A'
     },
     capitalList: {
       type: Array as PropType<Array<String>>,
-      default: ['Belgrade']
+      default: ['N/A']
     },
   },
   methods: {

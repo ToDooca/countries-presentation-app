@@ -18,5 +18,30 @@
       font-size: 18px;
       font-weight: 600;
     }
+
+    @media (max-width: $lg_breakpoint) {
+      h2 {
+        font-weight: 800;
+        font-size: 17px;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+
+
+    @media (max-width: $sm_breakpoint) {
+      h2 {
+        font-weight: 800;
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
   }
 }

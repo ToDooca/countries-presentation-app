@@ -9,12 +9,15 @@ body {
 }
 
 .wrapper {
-  max-width: $desktop_breakpoint;
-  padding: 0 70px;
+  max-width: $xl_breakpoint;
+  padding: 0 60px;
   margin: 0 auto;
   clear: both;
-  @media (max-width: $tablet_breakpoint) {
+  @media (max-width: $lg_breakpoint) {
     padding: 0 48px;
+  }
+  @media (max-width: $sm_breakpoint) {
+    padding: 0 20px;
   }
 }
 
