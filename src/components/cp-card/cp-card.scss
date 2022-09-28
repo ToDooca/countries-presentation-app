@@ -12,8 +12,16 @@
     margin: 30px -20px;
   }
 
-  @media (max-width: $md_breakpoint) {
-    margin: 30px 0;
+  @media (max-width: $sm_breakpoint) {
+    margin: 30px 10px;
+
+    .card-info {
+      font-size: 14px;
+
+      h2 {
+        font-size: 18px;
+      }
+    }
   }
 
   img {
@@ -22,6 +30,11 @@
     height: 180px;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03);
+
+    @media (max-width: $sm_breakpoint) {
+      max-height: 180px;
+      height: auto;
+    }
   }
 }
 
