@@ -1,16 +1,24 @@
+@import "src/assets/variables";
 * {
   font-family: Nunito Sans, sans-serif;
 }
 
 body {
   margin: 0;
+  width: 100%;
 }
 
 .wrapper {
-  max-width: 1440px;
+  max-width: $desktop_breakpoint;
   padding: 0 120px;
-  width: 100%;
   margin: 0 auto;
+  clear: both;
+  @media (max-width: $tablet_breakpoint) {
+    padding: 0 58px;
+  }
+  @media (max-width: $mobile_breakpoint) {
+    padding: 0 12px;
+  }
 }
 
 p,

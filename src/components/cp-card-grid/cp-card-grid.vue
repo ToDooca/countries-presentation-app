@@ -1,13 +1,15 @@
 <template>
-  <div class="grid-wrapper wrapper">
-    <cp-card/>
-    <cp-card/>
-    <cp-card/>
-    <cp-card/>
-    <cp-card/>
-    <cp-card/>
-    <cp-card/>
-    <cp-card/>
+  <div class="wrapper">
+    <div class="grid-container">
+      <cp-card/>
+      <cp-card/>
+      <cp-card/>
+      <cp-card/>
+      <cp-card/>
+      <cp-card/>
+      <cp-card/>
+      <cp-card/>
+    </div>
   </div>
 </template>
 

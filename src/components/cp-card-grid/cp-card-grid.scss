@@ -1,8 +1,8 @@
-.grid-wrapper {
-  width: 100%;
-  padding: 10px 0;
+.grid-container {
   display: flex;
+  width: calc(100% + 32px);
+  margin: 0 -16px;
+  padding: 10px 0;
   flex-wrap: wrap;
-  align-items: center;
   height: auto;
 }
