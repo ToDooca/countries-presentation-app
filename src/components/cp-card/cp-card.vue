@@ -5,12 +5,19 @@
       <h2>{{ country_name }}</h2>
       <p><span>Population: </span>{{ formatPopulation(population) }}</p>
       <p><span>Region: </span>{{ region }}</p>
-      <p><span>Capital: </span>{{ capital }}</p>
+      <div class="capital-list">
+        <span>Capital:&nbsp;</span>
+        <ul>
+          <li v-for="capital of capitalList"> {{ capital }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import {PropType} from "vue";
+
 export default {
   name: "cp-card",
   props: {
@@ -23,20 +30,20 @@ export default {
       default: 'Serbia'
     },
     population: {
-      type: Number,
-      default: 6908224
+      type: String,
+      default: '6908224'
     },
     region: {
       type: String,
       default: 'Europe'
     },
-    capital: {
-      type: String,
-      default: 'Belgrade'
+    capitalList: {
+      type: Array as PropType<Array<String>>,
+      default: ['Belgrade']
     },
   },
   methods: {
-    formatPopulation(population: number): string{
+    formatPopulation(population: string): string {
       return population.toLocaleString();
     }
   }

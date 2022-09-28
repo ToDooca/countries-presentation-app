@@ -1,14 +1,13 @@
 <template>
   <div class="wrapper">
-    <div class="grid-container">
-      <cp-card/>
-      <cp-card/>
-      <cp-card/>
-      <cp-card/>
-      <cp-card/>
-      <cp-card/>
-      <cp-card/>
-      <cp-card/>
+    <div class="grid-container" >
+      <cp-card v-for="country of countries"
+          :image="country.flags.png"
+          :country_name="country.name.common"
+          :population="country.population"
+          :region="country.region"
+          :capital-list="country.capital"
+      />
     </div>
   </div>
 </template>

@@ -22,7 +22,8 @@
 
   img {
     width: 100%;
-    border-radius: 5px;
+    height: 180px;
+    border-radius: 5px 5px 0 0;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.03);
   }
 }
@@ -37,6 +38,16 @@
 
   span {
     font-weight: 600;
+  }
+}
+
+.capital-list {
+  display: flex;
+  ul {
+    list-style: none;
+    color: black;
+    padding: 0;
+    margin: 0;
   }
 }
 
