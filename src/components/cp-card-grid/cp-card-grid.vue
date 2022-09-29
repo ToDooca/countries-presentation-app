@@ -24,7 +24,7 @@ export default {
       return store.getters.getCountries
     }
   },
-  created() {
+  mounted() {
     store.dispatch("fetchCountries");
   }
 }

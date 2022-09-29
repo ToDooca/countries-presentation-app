@@ -20,10 +20,9 @@ export default createStore<State>({
                 console.log(e)
             })
         },
-        fetchCountry({commit}, countryName) {
+        fetchCountry({commit}) {
             axios.get('https://restcountries.com/v3.1/name/malta').then(res => {
                 commit('SET_COUNTRY', res.data)
-                console.log(res.data)
             }).catch(e => {
                 //@TODO implement snackbar or a similar alternative
                 console.log(e)
