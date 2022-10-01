@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="preview-container" :key="this.countryName">
+    <div class="preview-container" :key="countryName">
       <p>{{ countryInfo.name.common }}</p>
       <p>Native Name: {{ Object.values(countryInfo.name.nativeName)[0].official }}</p>
       <p>Population: {{ formatPopulation(countryInfo.population) }}</p>
@@ -23,8 +23,8 @@
       <div class="languages-list">
         <span>Languages:&nbsp;</span>
         <p v-for="(language, key, index) in countryInfo.languages">{{ language }}<span
-          v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
-      </p>
+            v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
+        </p>
       </div>
     </div>
   </div>
@@ -33,12 +33,18 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import store from "@/store";
+import axios from "axios";
+import {Country} from "@/types/country";
 
 export default defineComponent({
   name: 'CountryPreview',
   components: {},
   props: {},
   methods: {
+    async fetchCountryInfo() {
+      const countryInfoResponse = await axios.get('https://restcountries.com/v3.1/name/' + this.countryName)
+      this.countryInfo = countryInfoResponse.data[0]
+    },
     formatPopulation(population: number): string {
       return population.toLocaleString();
     },
@@ -52,13 +58,17 @@ export default defineComponent({
     countryName: function () {
       return this.$route.params.name.toString().toLowerCase();
     },
-    countryInfo: function () {
-      return store.getters.getCountry[0]
-    },
+
   },
-  beforeMount() {
-    store.dispatch('fetchCountry', this.countryName);
+  data() {
+    return {
+      countryInfo: undefined
+    }
   },
+  async created() {
+    await this.fetchCountryInfo();
+  }
+
 });
 </script>
 

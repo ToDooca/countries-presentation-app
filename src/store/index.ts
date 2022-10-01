@@ -5,11 +5,10 @@ import axios from "axios";
 export default createStore<State>({
     state: {
         countries: [],
-        country: []
+        // country: []
     },
     getters: {
         getCountries: (state) => state.countries,
-        getCountry: (state) => state.country,
     },
     actions: {
         fetchCountries({commit}) {
@@ -20,21 +19,10 @@ export default createStore<State>({
                 console.log(e)
             })
         },
-        fetchCountry({commit}, countryName) {
-            axios.get('https://restcountries.com/v3.1/name/' + countryName).then(res => {
-                commit('SET_COUNTRY', res.data)
-            }).catch(e => {
-                //@TODO implement snackbar or a similar alternative
-                console.log(e)
-            })
-        }
     },
     mutations: {
         SET_COUNTRIES(state, countries) {
             state.countries = countries
         },
-        SET_COUNTRY(state, country) {
-            state.country = country
-        }
     },
 })
