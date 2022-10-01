@@ -1,12 +1,15 @@
 import {Code} from "@/types/code";
+import {Name} from "@/types/name";
 
 export interface Country {
-    name: String,
-    full_name: String,
+    name: Name,
+    full_name: string,
+    borders: string[],
     code: Code[],
-    currency: String,
-    language: String,
-    capital_city: String,
-    region: String,
-    subregion: String,
+    currency: string,
+    language: string,
+    capital_city: string,
+    region: string,
+    subregion: string,
+    cca3: string,
 }

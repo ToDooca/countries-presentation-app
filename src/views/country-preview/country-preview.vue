@@ -26,14 +26,15 @@
             v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
         </p>
       </div>
+      <p>Border Countries: {{ matchBorderCountries() }}</p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import store from "@/store";
 import axios from "axios";
+import store from "@/store";
 import {Country} from "@/types/country";
 
 export default defineComponent({
@@ -52,21 +53,35 @@ export default defineComponent({
     checkIfFirstOrLast(index: number, object: {}): Boolean {
       if (Object.keys(object).length > 1) return index !== Object.keys(object).length - 1;
       else return false
+    },
+    matchBorderCountries(): String[] {
+      let borderCountries: String[] = [];
+      this.countries.forEach((country: Country) => {
+        if(this.countryInfo?.borders.includes(country.cca3)){
+          borderCountries.push(country.name.common)
+        }
+      })
+      return borderCountries
     }
   },
   computed: {
     countryName: function () {
       return this.$route.params.name.toString().toLowerCase();
     },
-
+    countries: function () {
+      return store.getters.getCountries
+    }
   },
-  data() {
+  data(): {countryInfo?: Country} {
     return {
       countryInfo: undefined
     }
   },
   async created() {
     await this.fetchCountryInfo();
+  },
+  mounted() {
+    store.dispatch("fetchCountries");
   }
 
 });
