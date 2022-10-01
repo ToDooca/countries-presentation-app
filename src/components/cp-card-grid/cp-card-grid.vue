@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="grid-container" >
+    <div class="grid-container" :key="countries">
       <cp-card v-for="country of countries"
           :image="country.flags.png"
           :country_name="country.name.common"
@@ -24,7 +24,7 @@ export default {
       return store.getters.getCountries
     }
   },
-  mounted() {
+  beforeCreate() {
     store.dispatch("fetchCountries");
   }
 }
