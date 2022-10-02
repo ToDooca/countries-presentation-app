@@ -1,4 +1,10 @@
+@import "src/assets/variables";
+
 .preview-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
   .currencies-list, .capital-list, .languages-list {
     display: flex;
   }
@@ -6,4 +12,62 @@
   .border-countries {
     display: inline-block;
   }
+
+  img {
+    height: 100%;
+    width: 35%;
+  }
+
+  .country-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+
+    .info-rows {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+  }
+
+  @media (max-width: $lg_breakpoint) {
+    flex-direction: column;
+
+    h2 {
+      padding-top: 30px;
+    }
+
+    .country-details {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .info-rows {
+      flex-direction: column;
+
+      .info-row-left {
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+.back-btn {
+  margin: 60px 0;
+  @media (max-width: $lg_breakpoint) {
+    margin-top: 40px;
+  }
+}
+
+span {
+  font-weight: 600;
+}
+
+p {
+  padding-bottom: 3px;
 }

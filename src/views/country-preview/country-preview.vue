@@ -1,36 +1,51 @@
 <template>
   <div class="wrapper">
+    <cp-button class="back-btn"
+               btn_label="Back"
+               btn_icon="arrow-back"
+               ico_left="true"/>
     <div class="preview-container" :key="countryName">
-      <p>{{ countryInfo.name.common }}</p>
-      <p>Native Name: {{ Object.values(countryInfo.name.nativeName)[0].official }}</p>
-      <p>Population: {{ formatPopulation(countryInfo.population) }}</p>
-      <p>Region: {{ countryInfo.region }}</p>
-      <p>Subregion: {{ countryInfo.subregion }}</p>
-      <p>Capital: {{ countryInfo.subregion }}</p>
-      <div class="capital-list">
-        <span>Capital:&nbsp;</span>
-        <p v-for="(capital, key, index) of countryInfo.capital">{{ capital }}<span
-            v-if="checkIfFirstOrLast(index, countryInfo.capital)">,&nbsp;</span>
-        </p>
-      </div>
-      <p>Top Level Domain: {{ countryInfo.tld[0] }}</p>
-      <div class="currencies-list">
-        <span>Currencies:&nbsp;</span>
-        <p v-for="(currency, key, index) in countryInfo.currencies">{{ currency.name }}<span
-            v-if="checkIfFirstOrLast(index, countryInfo.currencies)">,&nbsp;</span>
-        </p>
-      </div>
-      <div class="languages-list">
-        <span>Languages:&nbsp;</span>
-        <p v-for="(language, key, index) in countryInfo.languages">{{ language }}<span
-            v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
-        </p>
-      </div>
-      <div class="borders-list">
-        <span>Border Countries:&nbsp;</span>
-        <!--        <router-link :to="{name: 'country_preview', params: {name: border}}" v-for="border in matchBorderCountries()">-->
-        <cp-button v-for="border in matchBorderCountries()" :btn_label="border" @click="updateCountryName(border)"/>
-        <!--        </router-link>-->
+      <img :src="countryInfo.flags.png" alt="country-image">
+      <div class="country-details">
+        <h2 class="country-name">{{ countryInfo.name.common }}</h2>
+        <div class="info-rows">
+          <div class="info-row-left">
+            <p><span>Native Name: </span>{{ Object.values(countryInfo.name.nativeName)[0].official }}</p>
+            <p><span>Population: </span>{{ formatPopulation(countryInfo.population) }}</p>
+            <p><span>Region: </span>{{ countryInfo.region }}</p>
+            <p><span>Subregion: </span>{{ countryInfo.subregion }}</p>
+            <p><span>Capital: </span>{{ countryInfo.subregion }}</p>
+            <div class="capital-list">
+              <span>Capital:&nbsp;</span>
+              <p v-for="(capital, key, index) of countryInfo.capital">{{ capital }}<span
+                  v-if="checkIfFirstOrLast(index, countryInfo.capital)">,&nbsp;</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-row-right">
+            <p><span>Top Level Domain: </span>{{ countryInfo.tld[0] }}</p>
+            <div class="currencies-list">
+              <span>Currencies:&nbsp;</span>
+              <p v-for="(currency, key, index) in countryInfo.currencies">{{ currency.name }}<span
+                  v-if="checkIfFirstOrLast(index, countryInfo.currencies)">,&nbsp;</span>
+              </p>
+            </div>
+            <div class="languages-list">
+              <span>Languages:&nbsp;</span>
+              <p v-for="(language, key, index) in countryInfo.languages">{{ language }}<span
+                  v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="buttons-section">
+          <cp-button btn_label="View on Map" class="map-btn" :href="this.countryInfo.maps.googleMaps"/>
+          <div class="borders-list" v-if="this.countryInfo?.borders">
+            <span>Border Countries:&nbsp;</span>
+            <cp-button v-for="border in matchBorderCountries()" :btn_label="border" @click="updateCountryName(border)"/>
+          </div>
+        </div>
       </div>
     </div>
   </div>
