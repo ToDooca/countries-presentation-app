@@ -3,15 +3,24 @@
   text-decoration: none;
   padding: 5px 20px;
   margin: 5px;
+  border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 }
 
 .ico-left-true {
   flex-direction: row-reverse;
+
   ion-icon {
     padding-right: 5px;
   }
 }
+
 .ico-left-false {
   ion-icon {
     padding-left: 5px;

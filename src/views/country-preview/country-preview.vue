@@ -26,7 +26,12 @@
             v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
         </p>
       </div>
-      <cp-button v-for="border in matchBorderCountries()" :btn_label="border"/>
+      <div class="borders-list">
+        <span>Border Countries:&nbsp;</span>
+        <!--        <router-link :to="{name: 'country_preview', params: {name: border}}" v-for="border in matchBorderCountries()">-->
+        <cp-button v-for="border in matchBorderCountries()" :btn_label="border" @click="updateCountryName(border)"/>
+        <!--        </router-link>-->
+      </div>
     </div>
   </div>
 </template>
@@ -41,8 +46,11 @@ import CpButton from "@/components/cp-button/cp-button.vue";
 export default defineComponent({
   name: 'CountryPreview',
   components: {CpButton},
-  props: {},
   methods: {
+    updateCountryName(newCountryName: string) {
+      this.countryName = newCountryName;
+      this.fetchCountryInfo()
+    },
     async fetchCountryInfo() {
       const countryInfoResponse = await axios.get('https://restcountries.com/v3.1/name/' + this.countryName)
       this.countryInfo = countryInfoResponse.data[0]
@@ -58,33 +66,30 @@ export default defineComponent({
     matchBorderCountries(): String[] {
       let borderCountries: String[] = [];
       this.countries.forEach((country: Country) => {
-        if(this.countryInfo?.borders.includes(country.cca3)){
-          borderCountries.push(country.name.common)
+        if (this.countryInfo?.borders.includes(country.cca3)) {
+          borderCountries.push(country.name.common);
         }
       })
-      return borderCountries
-    }
+      return borderCountries;
+    },
   },
   computed: {
-    countryName: function () {
-      return this.$route.params.name.toString().toLowerCase();
-    },
     countries: function () {
-      return store.getters.getCountries
+      return store.getters.getCountries;
     }
   },
-  data(): {countryInfo?: Country} {
+  data(): { countryInfo?: Country, countryName?: string } {
     return {
-      countryInfo: undefined
+      countryInfo: undefined,
+      countryName: this.$route.params.name.toString().toLowerCase()
     }
+  },
+  beforeCreate() {
+    store.dispatch("fetchCountries");
   },
   async created() {
     await this.fetchCountryInfo();
   },
-  mounted() {
-    store.dispatch("fetchCountries");
-  }
-
 });
 </script>
 

@@ -1,5 +1,9 @@
 .preview-container {
-    .currencies-list, .capital-list, .languages-list {
-      display: flex;
-    }
+  .currencies-list, .capital-list, .languages-list {
+    display: flex;
+  }
+
+  .border-countries {
+    display: inline-block;
+  }
 }
