@@ -5,6 +5,7 @@
 
 <script lang="ts">
 import CpNav from "@/components/cp-nav/cp-nav.vue";
+import {IonButton} from '@ionic/vue'
 
 export default {
   components: {CpNav},

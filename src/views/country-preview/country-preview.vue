@@ -3,7 +3,8 @@
     <cp-button class="back-btn"
                btn_label="Back"
                btn_icon="arrow-back"
-               ico_left="true"/>
+               ico_left="true"
+               @click="$router.back()"/>
     <div class="preview-container" :key="countryName">
       <img :src="countryInfo.flags.png" alt="country-image">
       <div class="country-details">

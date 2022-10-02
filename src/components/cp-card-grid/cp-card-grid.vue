@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="grid-container" :key="countries">
+    <div class="card-grid-container" :key="countries">
       <cp-card v-for="country of countries"
           :image="country.flags.png"
           :country_name="country.name.common"

@@ -16,7 +16,7 @@ ion-icon {
   }
 }
 
-p, a, span {
+p, span {
   @media (max-width: $md_breakpoint) {
     font-size: 14px;
   }
