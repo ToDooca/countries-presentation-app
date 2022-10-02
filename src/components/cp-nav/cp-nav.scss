@@ -1,6 +1,9 @@
 @import "src/assets/variables";
 
 .navbar {
+  z-index: 1;
+  position: sticky;
+  top: 0;
   background-color: $white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
 
