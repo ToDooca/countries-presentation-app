@@ -26,7 +26,7 @@
             v-if="checkIfFirstOrLast(index, countryInfo.languages)">,&nbsp;</span>
         </p>
       </div>
-      <p>Border Countries: {{ matchBorderCountries() }}</p>
+      <cp-button v-for="border in matchBorderCountries()" :btn_label="border"/>
     </div>
   </div>
 </template>
@@ -36,10 +36,11 @@ import {defineComponent} from 'vue';
 import axios from "axios";
 import store from "@/store";
 import {Country} from "@/types/country";
+import CpButton from "@/components/cp-button/cp-button.vue";
 
 export default defineComponent({
   name: 'CountryPreview',
-  components: {},
+  components: {CpButton},
   props: {},
   methods: {
     async fetchCountryInfo() {
