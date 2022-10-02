@@ -1,5 +1,9 @@
 <template>
   <div class="wrapper">
+    <div class="filters-section">
+      <cp-search/>
+      <cp-dropdown/>
+    </div>
     <div class="card-grid-container" :key="countries">
       <cp-card v-for="country of countries"
           :image="country.flags.png"
@@ -15,10 +19,12 @@
 <script lang="ts">
 import CpCard from "@/components/cp-card/cp-card.vue";
 import store from "@/store";
+import CpSearch from "@/components/cp-search/cp-search.vue";
+import CpDropdown from "@/components/cp-dropdown/cp-dropdown.vue";
 
 export default {
   name: "cp-card-grid",
-  components: {CpCard},
+  components: {CpDropdown, CpSearch, CpCard},
   computed: {
     countries: function () {
       return store.getters.getCountries
