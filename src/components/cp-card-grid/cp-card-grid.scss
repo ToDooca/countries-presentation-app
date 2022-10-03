@@ -3,19 +3,39 @@
 .filters-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 100px;
+  align-items: flex-end;
+  height: 90px;
   width: 100%;
 
-  .dropdown {
-    p {
-      padding: 5px 15px;
+  .search-wrapper{
+    display: flex;
+    padding: 15px;
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
 
-      &:hover {
-        background: $very_light_gray;
-        cursor: pointer;
+    .search-icon {
+      color: #b5b5b5;
+      padding: 0 20px;
+    }
+
+    .input-field {
+      width: 450px;
+      border: none;
+      &:focus-visible {
+        outline: none;
       }
     }
+  }
+
+}
+
+p {
+  padding: 5px 15px;
+
+  &:hover {
+    background: $very_light_gray;
+    cursor: pointer;
   }
 }
 
@@ -32,5 +52,15 @@
   @media (max-width: $lg_breakpoint) {
     width: 100%;
     margin: 0
+  }
+}
+
+.dark {
+  p:hover {
+    background: $very_dark_blue;
+  }
+  .search-wrapper, .input-field {
+    background: $dark_blue;
+    color: $white;
   }
 }
