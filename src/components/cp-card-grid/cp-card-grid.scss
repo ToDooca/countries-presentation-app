@@ -1,5 +1,25 @@
 @import "src/assets/variables";
 
+.filters-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+
+  .dropdown {
+    p {
+      padding: 5px 15px;
+
+      &:hover {
+        background: $very_light_gray;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
 .card-grid-container {
   display: flex;
   justify-content: center;

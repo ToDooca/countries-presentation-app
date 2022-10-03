@@ -1,8 +1,13 @@
 <template>
   <div class="wrapper">
     <div class="filters-section">
-      <cp-search/>
-      <cp-dropdown/>
+      <cp-search placeholder_label="Search for a country..."/>
+      <cp-dropdown label="Filter by Region" class="dropdown">
+        <p>jen</p>
+        <p>jenasda</p>
+        <p>jenasda</p>
+        <p>jenvcvc</p>
+      </cp-dropdown>
     </div>
     <div class="card-grid-container" :key="countries">
       <cp-card v-for="country of countries"

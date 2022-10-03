@@ -1,11 +1,34 @@
 <template>
-
+  <div class="dropdown">
+    <button @click="toggleDropdown">
+      <span>{{ label }}</span>
+      <ion-icon name="chevron-down"/>
+    </button>
+    <div class="dropdown-menu" v-if="dropdownOpen">
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: "cp-dropdown"
-}
+import {defineComponent} from "vue";
+
+export default defineComponent({
+  name: "cp-dropdown",
+  data(): { dropdownOpen: boolean } {
+    return {
+      dropdownOpen: false
+    }
+  },
+  props: {
+    label: String
+  },
+  methods: {
+    toggleDropdown() {
+      this.dropdownOpen = !this.dropdownOpen
+    }
+  }
+});
 </script>
 
 <style scoped lang="scss">
