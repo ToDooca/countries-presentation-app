@@ -71,3 +71,12 @@
     margin: 0;
   }
 }
+
+.dark {
+  .card-container {
+    background: $dark_blue;
+    * {
+      color: $white;
+    }
+  }
+}

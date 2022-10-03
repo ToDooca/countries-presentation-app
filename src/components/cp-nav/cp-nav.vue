@@ -1,18 +1,23 @@
 <template>
-  <div class="navbar">
+  <nav class="navbar">
     <div class="navbar-container wrapper">
       <h2>Where in the world?</h2>
       <p>
-        <ion-icon name="moon-outline"/>
+        <cp-toggle :mode="mode" @toggle="$emit('toggle')"/>
         Dark mode
       </p>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">
+import CpToggle from "@/components/cp-toggle/cp-toggle.vue";
 export default {
-  name: "cp-nav"
+  name: "cp-nav",
+  components: {CpToggle},
+  props: {
+    mode: String
+  }
 }
 </script>
 

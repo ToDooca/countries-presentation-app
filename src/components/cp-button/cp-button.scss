@@ -36,3 +36,10 @@
     padding-left: 5px;
   }
 }
+
+.dark {
+  .button-content {
+    background: $dark_blue;
+    color: $white;
+  }
+}
