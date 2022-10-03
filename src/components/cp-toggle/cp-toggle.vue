@@ -6,8 +6,8 @@
              @change="$emit('toggle')"
       />
       <span class="toggler">
-        <ion-icon name="moon-outline" v-if="mode==='dark'"/>
-        <ion-icon name="moon" v-if="mode==='light'"/>
+        <ion-icon name="moon-outline" v-if="mode==='light'"/>
+        <ion-icon name="moon" v-if="mode==='dark'"/>
       </span>
     </label>
   </div>
