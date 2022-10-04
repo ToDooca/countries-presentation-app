@@ -10,7 +10,10 @@
         />
       </div>
       <cp-dropdown label="Filter by Region" class="dropdown">
-        <p v-for="region in regions" @click="filterRegion">{{ region }}</p>
+        <p v-for="region in regions">
+<!--           @click="filterRegion">-->
+          {{ region }}
+        </p>
       </cp-dropdown>
     </div>
     <div class="card-grid-container" :key="countries">

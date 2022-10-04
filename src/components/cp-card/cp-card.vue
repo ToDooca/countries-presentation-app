@@ -18,9 +18,9 @@
 </template>
 
 <script lang="ts">
-import {PropType} from "vue";
+import {defineComponent, PropType} from "vue";
 
-export default {
+export default defineComponent({
   name: "cp-card",
   props: {
     image: {
@@ -49,7 +49,7 @@ export default {
       return population.toLocaleString();
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">

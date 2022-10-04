@@ -4,7 +4,7 @@
                btn_label="Back"
                btn_icon="arrow-back"
                ico_left="true"
-               @click="$router.back()"/>
+               @click="$router.back(); updateCountryName($route.params.name.toString().toLowerCase())"/>
     <div class="preview-container" :key="countryName">
       <img :src="countryInfo.flags.png" alt="country-image">
       <div class="country-details">
@@ -44,7 +44,10 @@
           <cp-button btn_label="View on Map" class="map-btn" :href="this.countryInfo.maps.googleMaps"/>
           <div class="borders-list" v-if="this.countryInfo?.borders">
             <span>Border Countries:&nbsp;</span>
-            <cp-button v-for="border in matchBorderCountries()" :btn_label="border" @click="updateCountryName(border)"/>
+            <router-link v-for="border in matchBorderCountries()"
+                         :to="{ name: 'country_preview', params: {name: border}}">
+              <cp-button :btn_label="border" @click="updateCountryName(border)"/>
+            </router-link>
           </div>
         </div>
       </div>

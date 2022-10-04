@@ -14,12 +14,14 @@
 </template>
 
 <script lang="ts">
-export default {
+import {defineComponent} from "vue";
+
+export default defineComponent({
   name: "cp-toggle",
   props: {
     mode: String
   }
-}
+})
 </script>
 
 <style scoped lang="scss">

@@ -12,13 +12,14 @@
 
 <script lang="ts">
 import CpToggle from "@/components/cp-toggle/cp-toggle.vue";
-export default {
+import {defineComponent} from "vue";
+export default defineComponent({
   name: "cp-nav",
   components: {CpToggle},
   props: {
     mode: String
   }
-}
+});
 </script>
 
 <style scoped lang="scss">
