@@ -4,7 +4,7 @@
                btn_label="Back"
                btn_icon="arrow-back"
                ico_left="true"
-               @click="$router.back(); updateCountryName($route.params.name.toString().toLowerCase())"/>
+               @click="goBack"/>
     <div class="preview-container" :key="countryName">
       <img :src="countryInfo.flags.png" alt="country-image">
       <div class="country-details">
@@ -91,6 +91,10 @@ export default defineComponent({
       })
       return borderCountries;
     },
+    goBack() {
+      this.updateCountryName(this.$route.params.name.toString().toLowerCase());
+      this.$router.back();
+    }
   },
   computed: {
     countries: function () {

@@ -30,6 +30,7 @@
 </template>
 
 <script lang="ts">
+import { IonIcon } from '@ionic/vue';
 import CpCard from "@/components/cp-card/cp-card.vue";
 import store from "@/store";
 import CpDropdown from "@/components/cp-dropdown/cp-dropdown.vue";
@@ -38,7 +39,7 @@ import {Country} from "@/types/country";
 
 export default defineComponent<any>({
   name: "cp-card-grid",
-  components: {CpDropdown, CpCard},
+  components: {CpDropdown, CpCard, IonIcon},
   computed: {
     countries: function() {
       return store.getters.getCountries

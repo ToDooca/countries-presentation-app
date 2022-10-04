@@ -7,9 +7,12 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import { IonIcon } from '@ionic/vue';
+
 
 export default defineComponent({
   name: "cp-button",
+  components:{IonIcon},
   props: {
     btn_label: {
       type: String,

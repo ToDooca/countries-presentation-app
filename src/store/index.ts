@@ -5,7 +5,6 @@ import axios from "axios";
 export default createStore<State>({
     state: {
         countries: [],
-        previewHistory: []
     },
     getters: {
         getCountries: (state) => state.countries,

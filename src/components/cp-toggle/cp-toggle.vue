@@ -15,9 +15,11 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import { IonIcon } from '@ionic/vue';
 
 export default defineComponent({
   name: "cp-toggle",
+  components: {IonIcon},
   props: {
     mode: String
   }

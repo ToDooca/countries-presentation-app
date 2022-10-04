@@ -13,9 +13,11 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import { IonIcon } from '@ionic/vue';
 
 export default defineComponent({
   name: "cp-dropdown",
+  components: {IonIcon},
   data(): { dropdownOpen: boolean } {
     return {
       dropdownOpen: false

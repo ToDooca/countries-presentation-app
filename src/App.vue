@@ -7,6 +7,7 @@
 
 <script lang="ts">
 import CpNav from "@/components/cp-nav/cp-nav.vue";
+import { IonIcon } from '@ionic/vue';
 import {defineComponent} from "vue";
 
 export default defineComponent({
