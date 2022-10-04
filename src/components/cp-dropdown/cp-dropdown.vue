@@ -1,6 +1,7 @@
 <template>
   <div class="dropdown">
     <button @click="toggleDropdown">
+      <span v-if="label===''">Select a Region</span>
       <span>{{ label }}</span>
       <ion-icon name="chevron-down"/>
     </button>
@@ -27,6 +28,7 @@ export default defineComponent({
     toggleDropdown() {
       this.dropdownOpen = !this.dropdownOpen
     }
+
   }
 });
 </script>

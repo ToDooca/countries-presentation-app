@@ -9,9 +9,9 @@
                v-model="searchValue"
         />
       </div>
-      <cp-dropdown label="Filter by Region" class="dropdown">
-        <p v-for="region in regions">
-<!--           @click="filterRegion">-->
+      <cp-dropdown :label="selectedRegion" class="dropdown">
+        <p @click="clearSelection">Clear Selection</p>
+        <p v-for="region in regions" @click="selectedRegion=region">
           {{ region }}
         </p>
       </cp-dropdown>
@@ -23,7 +23,7 @@
                :population="country.population"
                :region="country.region"
                :capital-list="country.capital"
-               :key="country.name.common"
+               :key="[country.name.common, country.region]"
       />
     </div>
   </div>
@@ -36,25 +36,31 @@ import CpDropdown from "@/components/cp-dropdown/cp-dropdown.vue";
 import {defineComponent} from "vue";
 import {Country} from "@/types/country";
 
-export default defineComponent({
+export default defineComponent<any>({
   name: "cp-card-grid",
   components: {CpDropdown, CpCard},
   computed: {
-    countries: function () {
+    countries: function() {
       return store.getters.getCountries
     },
-    filteredCountries: function () {
+    filteredCountries: function() {
       return this.countries.filter((country: Country) =>
           country.name.common.toLowerCase().includes(this.searchValue.toLowerCase()))
-    }
+          .filter((country: Country) => country.region.includes(this.selectedRegion))
+    },
   },
-  data() {
+  data(): {regions: string[], searchValue: string, selectedRegion: string} {
     return {
       regions: ['Europe', 'Asia', 'Oceania', 'Americas', 'Africa'],
-      searchValue: ''
+      searchValue: '',
+      selectedRegion: ''
     }
   },
-  methods: {},
+  methods: {
+    clearSelection() {
+      this.selectedRegion = ''
+    }
+  },
   beforeCreate() {
     store.dispatch("fetchCountries");
   }

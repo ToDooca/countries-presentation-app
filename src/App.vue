@@ -11,7 +11,7 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   components: {CpNav},
-  data(): {mode?: string} {
+  data(): {mode: string} {
     return {
       mode: 'dark'
     }
