@@ -2,6 +2,7 @@
 
 .filters-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
   height: 90px;
@@ -27,8 +28,20 @@
       }
     }
   }
+  @media (max-width: $lg_breakpoint) {
+    flex-direction: column;
+    align-items: normal;
+    height: 180px;
 
-}
+    .search-wrapper {
+      margin-top: 40px;
+      .input-field {
+        width: 100%;
+      }
+    }
+  }
+
+  }
 
 p {
   padding: 5px 15px;

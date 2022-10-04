@@ -5,7 +5,7 @@ import axios from "axios";
 export default createStore<State>({
     state: {
         countries: [],
-        // country: []
+        previewHistory: []
     },
     getters: {
         getCountries: (state) => state.countries,
@@ -16,7 +16,6 @@ export default createStore<State>({
                 commit('SET_COUNTRIES', res.data)
             }).catch(e => {
                 //@TODO implement snackbar or a similar alternative
-                console.log(e)
             })
         },
     },
